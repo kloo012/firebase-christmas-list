@@ -1,0 +1,137 @@
+@font-face {
+	font-family: 'Asap';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Asap'), local('Asap-Regular'), url(https://fonts.gstatic.com/s/asap/v4/4IZ-rb0XaZswogpKW4jQk_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+	font-family: 'Asap';
+	font-style: bold;
+	font-weight: 700;
+	src: local('Asap Bold'), local('Asap-Bold'), url(https://fonts.gstatic.com/s/asap/v4/5G6sgMkThovoLzdVPj0SSlKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/*variables*/
+$c-bg-red: #57030E;
+$c-btn-red: #911D2C;
+$c-btn-red-hover: #851321;
+$c-gray-light: #e6e6e6;
+$c-gray-light-hover: #dfdfdf;
+$c-btn-blue: #49A9C9;
+$c-btn-blue-hover: #268AAB;
+$c-lightest-gray: #f2f2f2;
+
+body {
+	background-image: url('http://kara-loo.com/img-host/tree_bark.png');
+	font-family: 'Asap', sans-serif;
+	margin: 20px 0;
+}
+
+h1, h3, h4 {
+	color: $c-bg-red;
+}
+
+a {
+	&.group-control {
+		bottom: 0;
+		color: $c-btn-red;
+		padding-top: 25px
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.group-form {
+	background-color: #fff;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+table {
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.group-table.table>tbody>tr>td,
+.group-table.table>tbody>tr>th {
+	padding: 10px 30px;
+	vertical-align: middle;
+}
+
+td {
+	&:last-child {
+		width: 230px;
+	}
+}
+
+.btn {
+	&:hover {
+		background-color: $c-gray-light-hover;
+	}
+	&-default {
+		border: 0;
+	}
+	&-bought-status {
+		background-color: $c-gray-light;
+		width: 170px;
+	}
+	&-add {
+		font-weight: bold;
+	}
+	&-remove {
+		background-color: $c-btn-red;
+		color: #fff;
+		&:hover,
+		&:focus {
+			background-color: $c-btn-red-hover;
+			color: #fff;
+		}
+	}
+	&-edit,
+	&-submit {
+	background-color: $c-btn-blue;
+	color: #fff;
+	&:hover,
+	&:focus {
+		background-color: $c-btn-blue-hover;
+		color: #fff;
+	}
+	}
+	&-edit {
+		margin-left: 20px;
+	}
+}
+
+.price, .recipient {
+	font-size: 20px;
+}
+
+.item-bought {
+	color: green;
+}
+
+.item-needed {
+	color: $c-bg-red;
+}
+
+.modal-dialog {
+	background-color: $c-lightest-gray;
+	border-radius: 6px;
+}
+
+/*helpers*/
+.bump20 {
+	margin-top: 20px;
+}
+
+.bump10 {
+	margin-top: 10px;
+}

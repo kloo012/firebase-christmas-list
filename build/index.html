@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+	<title>Firebase Christmas List</title>
+	<link rel="stylesheet" href="style/christmas-style.css">
+	<link rel="stylesheet" href="style/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" ng-app="xmasApp" ng-controller="xmasCtrl">
+		<h1>🎄Christmas Shopping List Using AngularFire </h1>
+
+		<button class="btn btn-default btn-add" role="button" data-toggle="modal" data-target="#groupModal">+ New Group
+		</button>
+		<button class="btn btn-default btn-add" role="button" data-toggle="modal" data-target="#recipientModal">+ New Recipient
+		</button>
+
+		<div class="row" ng-repeat="group in giftlist">
+			<div class="col-xs-12 bump10">
+				<h3 class="pull-left" ng-bind="group.name"></h3>
+				<a href="#" class="group-control pull-right" ng-click="deleteGroup($index, group)">Delete group</a>
+				<table class="table table-striped group-table">
+					<tr ng-repeat="recipient in group.members " class="row">
+						<td>
+							<span class="recipient" ng-bind="recipient.name"></span>
+						</td>
+						<td>
+							<span ng-bind="recipient.gift"></span>
+						</td>
+						<td>
+							<span class="price">${{recipient.price}}</span>
+						</td>
+						<td>
+							<span ng-show="recipient.purchased" class="item-bought">Bought</span>
+							<span ng-hide="recipient.purchased" class="item-needed">Need to Buy</span>
+						</td>
+						<td>
+							<button class="btn btn-default btn-remove" ng-click="deleteRecipient($parent.$index,$index, recipient)">Remove</button>
+						</td>
+						<td>
+						<button ng-click="recipient.purchased = !recipient.purchased" class="btn btn-default btn-bought-status">
+							<span ng-hide="recipient.purchased">
+								Mark as Bought
+							</span>
+							<span ng-show="recipient.purchased">
+								Mark as "Need to Buy"
+							</span>
+						</button>
+						<!--TODO
+						<button class="btn btn-default btn-edit">
+						  Edit
+						</button>-->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<button class="btn btn-default btn-reset" ng-click="reset()">Reset Original Items</button>
+
+		<!-- start modals -->
+		<div class="modal fade" id="groupModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">New Group</h4>
+					</div>
+					<div class="modal-body">
+						<form ng-submit="addGroup(groupname)">
+							<div class="form-group">
+							  <label for="groupname">Group Name:</label>
+							  <input id="groupname" type="text" ng-model="groupname" class="form-control"/>
+							</div>
+							<button type="submit" id="submit" class="btn btn-default btn-submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="recipientModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">New Recipient</h4>
+					</div>
+					<div class="modal-body">
+						<form ng-submit="addRecipient(rname, ritem, rprice, rgroup)">
+							<div class="form-group">
+								<label for="recipientname">Recipient Name:</label>
+								<input id="recipientname" type="text" class="form-control" ng-model="rname" ng-model="rname"/>
+							</div>
+							<div class="form-group">
+								<label for="itemname">Item:</label>
+								<input id="itemname" class="form-control" type="text" ng-model="ritem"/>
+							</div>
+							<div class="form-group">
+								<label for="itemprice">Price:</label>
+								<input id="itemprice" class="form-control" type="text" ng-model="rprice" ng-model="rprice"/>
+							</div>
+							<div class="form-group">
+								<label for="groupselect">Select Group</label>
+								<select name="roptions" class="form-control" id="groupselect" ng-model="rgroup">
+									<option value="">-- choose group --</option>
+									<option ng-repeat="gr in giftlist" ng-value="'group' + $index" ng-model="rgroup" ng-bind="{{gr.name}}"></option>
+								</select>
+							</div>
+							<button type="submit" id="submit" class="btn btn-default btn-submit">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end modals -->
+
+	<!--script src="script/plugins.js"></script-->
+	<script src="script/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+	<!--script src="script/firebase-web.js"></script-->
+	<script src="script/angularfire.min.js"></script>
+	<script src="script/jquery.min.js"></script>
+	<script src="script/bootstrap.min.js"></script>
+	<script src="script/app.js"></script>
+</body>
+

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Asap"), local("Asap-Regular"), url(https://fonts.gstatic.com/s/asap/v4/4IZ-rb0XaZswogpKW4jQk_esZW2xOQ-xsNqO47m55DA.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'Asap';
+  font-style: bold;
+  font-weight: 700;
+  src: local("Asap Bold"), local("Asap-Bold"), url(https://fonts.gstatic.com/s/asap/v4/5G6sgMkThovoLzdVPj0SSlKPGs1ZzpMvnHX-7fPOuAc.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+
+/*variables*/
+body {
+  background-image: url("http://kara-loo.com/img-host/tree_bark.png");
+  font-family: 'Asap', sans-serif;
+  margin: 20px 0; }
+
+h1, h3, h4 {
+  color: #57030E; }
+
+a.group-control {
+  bottom: 0;
+  color: #911D2C;
+  padding-top: 25px; }
+
+a:hover {
+  text-decoration: none; }
+
+.group-form {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px 20px; }
+
+ul {
+  list-style-type: none; }
+
+table {
+  background-color: #fff;
+  border: 1px solid #ddd; }
+
+.group-table.table > tbody > tr > td,
+.group-table.table > tbody > tr > th {
+  padding: 10px 30px;
+  vertical-align: middle; }
+
+td:last-child {
+  width: 230px; }
+
+.btn:hover {
+  background-color: #dfdfdf; }
+
+.btn-default {
+  border: 0; }
+
+.btn-bought-status {
+  background-color: #e6e6e6;
+  width: 170px; }
+
+.btn-add {
+  font-weight: bold; }
+
+.btn-remove {
+  background-color: #911D2C;
+  color: #fff; }
+  .btn-remove:hover, .btn-remove:focus {
+    background-color: #851321;
+    color: #fff; }
+
+.btn-edit, .btn-submit {
+  background-color: #49A9C9;
+  color: #fff; }
+  .btn-edit:hover, .btn-edit:focus, .btn-submit:hover, .btn-submit:focus {
+    background-color: #268AAB;
+    color: #fff; }
+
+.btn-edit {
+  margin-left: 20px; }
+
+.price, .recipient {
+  font-size: 20px; }
+
+.item-bought {
+  color: green; }
+
+.item-needed {
+  color: #57030E; }
+
+.modal-dialog {
+  background-color: #f2f2f2;
+  border-radius: 6px; }
+
+/*helpers*/
+.bump20 {
+  margin-top: 20px; }
+
+.bump10 {
+  margin-top: 10px; }
